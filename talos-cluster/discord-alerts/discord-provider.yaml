@@ -6,5 +6,5 @@ metadata:
 spec:
   type: discord
   channel: fluxcd-notifications
-    secretRef:
-      name: discord-url
+  secretRef:
+    name: discord-url
