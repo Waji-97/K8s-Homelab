@@ -1,0 +1,100 @@
+---
+clusterName: talos-home
+talosVersion: v1.7.4
+kubernetesVersion: v1.30.1
+endpoint: https://192.168.219.70:6443
+domain: talos.home
+clusterPodNets:
+  - 172.32.0.0/16
+clusterSvcNets:
+  - 10.32.0.0/16
+cniConfig:
+  name: none
+patches:
+  - |-
+    - op: add
+      path: /cluster/discovery/enabled
+      value: true
+nodes:
+  - hostname: talos-ma-01
+    ipAddress: 192.168.219.71
+    controlPlane: true
+    installDisk: /dev/sdb
+    networkInterfaces:
+      - interface: eth0
+        addresses:
+          - 192.168.219.71/24
+        routes:
+          - network: 0.0.0.0/0
+            gateway: 192.168.219.1
+        vip:
+          ip: 192.168.219.70
+  - hostname: talos-ma-02
+    ipAddress: 192.168.219.72
+    controlPlane: true
+    installDisk: /dev/sdb
+    networkInterfaces:
+      - interface: eth0
+        addresses:
+          - 192.168.219.72/24
+        routes:
+          - network: 0.0.0.0/0
+            gateway: 192.168.219.1
+        vip:
+          ip: 192.168.219.70
+  - hostname: talos-ma-03
+    ipAddress: 192.168.219.73
+    controlPlane: true
+    installDisk: /dev/sdb
+    networkInterfaces:
+      - interface: eth0
+        addresses:
+          - 192.168.219.73/24
+        routes:
+          - network: 0.0.0.0/0
+            gateway: 192.168.219.1
+        vip:
+          ip: 192.168.219.70
+  - hostname: talos-wk-01
+    ipAddress: 192.168.219.74
+    controlPlane: false
+    installDisk: /dev/sda
+    networkInterfaces:
+      - interface: eth0
+        addresses:
+          - 192.168.219.73/24
+        routes:
+          - network: 0.0.0.0/0
+            gateway: 192.168.219.1
+  - hostname: talos-wk-02
+    ipAddress: 192.168.219.75
+    controlPlane: false
+    installDisk: /dev/sda
+    networkInterfaces:
+      - interface: eth0
+        addresses:
+          - 192.168.219.75/24
+        routes:
+          - network: 0.0.0.0/0
+            gateway: 192.168.219.1
+controlPlane:
+  patches:
+    - |-
+      - op: add
+        path: /cluster/proxy/disabled
+        value: true
+  schematic:
+    customization:
+      extraKernelArgs:
+        - net.ifnames=0
+      systemExtensions:
+        officialExtensions:
+          - siderolabs/iscsi-tools
+worker:
+  schematic:
+    customization:
+      extraKernelArgs:
+        - net.ifnames=0
+      systemExtensions:
+       officialExtensions:
+         - siderolabs/iscsi-tools
