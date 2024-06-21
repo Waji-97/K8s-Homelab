@@ -1,0 +1,34 @@
+apiVersion: networking.cfargotunnel.com/v1alpha1
+kind: ClusterTunnel
+metadata:
+    name: cloudflare-cluster-tunnel
+spec:
+    newTunnel:
+        name: my-cluster-tunnel
+    size: 2
+    cloudflare:
+        email: ENC[AES256_GCM,data:Ryq9nLjddfmaGhIa3gTTwxcGLg==,iv:MxefGuQxWIDinQjNuBMytVe81g7PZef4QKJLAWOrEaw=,tag:celATx7pGFy1sHIPIqHkIQ==,type:str]
+        domain: ENC[AES256_GCM,data:ZqhJ4C5yihpqan3bTQ==,iv:EPwXM4mjwcNx50aarPNgx1VcihHIgCasiZ1UvBHlWvA=,tag:poxsvobK32N/Vk5iHkhGnw==,type:str]
+        secret: ENC[AES256_GCM,data:5ykvWA8pExD/tc13gnyNW3+E,iv:FnGiIgq5SjC3prYfdHzA18v0GqyN8KEWOFBP2b294p8=,tag:qmnkHTJBj1WcyQxKkj7leQ==,type:str]
+        accountName: ENC[AES256_GCM,data:PKZvKH9ngdAMw+swmMFJDR7Llw==,iv:3NfR6QpncRe2BNAr9MNZMFVv+Qs26ri0YCsCsco5Kb4=,tag:hFRSD6sTCpyiBpZdkS5hIg==,type:str]
+        accountId: ENC[AES256_GCM,data:JbV8ljX1dcya7xYuPyy8E/DtGFHlILi9NjIPCwECjMc=,iv:txbpC1oODBHitaognAFLjCF5npZmDmsD+ryRipdi0VE=,tag:WjB/yjW3bFQceLPPaI+n1A==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1wugt9lpqeqksnrddrjwdsws5gfw2srcswpqyaxfnadxflqqrf9qqqtzdc5
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBUR0FFZWp2Y3hsYWVlOXIz
+            aThIaExjRmlROTZSMWpDMWo2R0dnL0lCK3lVCjZPRFcvcGlMeEhHc01SQ2Z5b1VP
+            TGlmSEgvNy91NE1NT2lwbUJKajY3REUKLS0tIDN3cmR5dkZvSlJzL29jeExkRFNN
+            cVR6MlR4aXdvUzNNME83ZTdmWU1ERHcKcT8cN5CORrXDHhH5t3d6s0p7XCk3/VJG
+            OGhWOS/jMdyUU6zt/SKnyeQdwgfq2IGauImA/N+EJS/+nn9IA86A1w==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-06-21T16:44:59Z"
+    mac: ENC[AES256_GCM,data:pmfnfIjH1qZ3oJdMP51vy9gHBUcnnIg3Ch4UR+pOAMUm/1dV8NbVADNwSOHuUzXuHfwnCU0gWzds6K1QbQxcE/Wa/nW2711b+gL3HC8W6eIlogEdJLTXT5X/cUm6mVD+rc2vs9vASz1ExZCIRLTaLIEiY/it8imkb+a8zBXrPbc=,iv:MuvONPkcZ6hjVY+IIIcFksoxvxQG/+SSVvFI0fLbuJo=,tag:T5QhgzmoSYFXeU08wfBbxQ==,type:str]
+    pgp: []
+    encrypted_regex: email|domain|secret|accountName|accountId
+    version: 3.8.1
