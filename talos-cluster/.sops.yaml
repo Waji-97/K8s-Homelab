@@ -1,0 +1,4 @@
+creation_rules:
+  - path_regex: ".*\\.yaml$"
+    encrypted_regex: "email|domain|secret|accountName|accountId"
+    age: age1wugt9lpqeqksnrddrjwdsws5gfw2srcswpqyaxfnadxflqqrf9qqqtzdc5
