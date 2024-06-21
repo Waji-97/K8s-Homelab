@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./talos-cluster/cloudflare-operator/
+  path: ./
   prune: true
   sourceRef:
     kind: GitRepository
