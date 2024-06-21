@@ -3,6 +3,10 @@ kind: Ingress
 metadata:
   name: hubble-ingress
   namespace: kube-system
+  annotations:
+    nginx.ingress.kubernetes.io/auth-type: basic
+    nginx.ingress.kubernetes.io/auth-secret: basic-auth
+    nginx.ingress.kubernetes.io/auth-realm: 'Authentication Required - admin'
 spec:
   ingressClassName: nginx
   rules:
