@@ -17,7 +17,6 @@ spec:
     storageClass:
       create: true
         name: nfs-csi
-        provisioner: nfs.csi.k8s.io
         parameters:
           server: 192.168.219.20
           share: /var/nfsproxmox
