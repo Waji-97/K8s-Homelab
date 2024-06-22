@@ -7,10 +7,9 @@ spec:
   interval: 30m
   chart:
     spec:
-      chart: csi-driver-nfs
-      version: "*"
+      chart: charts/latest/csi-driver-nfs
       sourceRef:
-        kind: HelmRepository
+        kind: GitRepository
         name: csi-driver-nfs
       interval: 12h
   values:
