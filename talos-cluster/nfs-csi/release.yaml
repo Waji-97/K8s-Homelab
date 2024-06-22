@@ -16,3 +16,12 @@ spec:
   values:
     storageClass:
       create: true
+      name: nfs-csi
+      parameters:
+        server: 192.168.219.20
+        share: /var/nfsproxmox
+      reclaimPolicy: Delete
+      volumeBindingMode: Immediate
+      mountOptions:
+        - hard
+        - nfsvers=4.2
