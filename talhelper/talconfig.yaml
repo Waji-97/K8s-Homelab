@@ -62,7 +62,7 @@ nodes:
     networkInterfaces:
       - interface: eth0
         addresses:
-          - 192.168.219.73/24
+          - 192.168.219.74/24
         routes:
           - network: 0.0.0.0/0
             gateway: 192.168.219.1
@@ -83,6 +83,16 @@ controlPlane:
       - op: add
         path: /cluster/proxy/disabled
         value: true
+      - op: add
+        path: /machine/kubelet/extraMounts
+        value:
+          - destination: /var/lib/longhorn
+            type: bind
+            source: /var/lib/longhorn
+            options:
+              - bind
+              - rshared
+              - rw
   schematic:
     customization:
       extraKernelArgs:
@@ -90,7 +100,20 @@ controlPlane:
       systemExtensions:
         officialExtensions:
           - siderolabs/iscsi-tools
+          - siderolabs/util-linux-tools
 worker:
+  patches:
+    - |-
+      - op: add
+        path: /machine/kubelet/extraMounts
+        value:
+          - destination: /var/lib/longhorn
+            type: bind
+            source: /var/lib/longhorn
+            options:
+              - bind
+              - rshared
+              - rw
   schematic:
     customization:
       extraKernelArgs:
@@ -98,3 +121,4 @@ worker:
       systemExtensions:
        officialExtensions:
          - siderolabs/iscsi-tools
+         - siderolabs/util-linux-tools
