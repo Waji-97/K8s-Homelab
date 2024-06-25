@@ -1,0 +1,204 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: minio
+  labels:
+    pod-security.kubernetes.io/enforce: privileged
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: "minio-sa"
+  namespace: minio
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: minio-secret
+  namespace: minio
+spec:
+  encryptedData:
+    rootPassword: AgB25FAS0SI4TJ4XALBWh+zIcte5f9xLCBFKLSpvvsvriwAtZeP8+9BXUb/SnmfqCyQvz0ovlgs+0PLY0eSDSEBlMheMQ5Twj6Xg81cZyztJSD7c1jKj+eP/BGIXclcPep2scRyZAicPmlUtNbQLU17DXJaJLtJwyGEvsXspQVEjeTmX0ohiYrlkWdBxujs7KbaFL8GZnpifF7mZRVNxR4JRKS9o7K2jRASCPLuoNlgOrO9DKRpEI7t2q6V65nKN4g4+qWNDCyheFWU/dD7AUs9LOTU3ZWoY9lGVGG9bbwWgDJdYPB8sBcmhrC9OB19aV7XkI0Hkm4hs/u47Igr0qaPW6YLmOP+5GgZr0BjS4jvfuimCqupHlBixGz9gFNkXgWiuaqDHIz99GaYdv7PtwyYh2Z4EGMQ3brHn9GwXrLDRxlbWljEnl5ftzKLbQFve4s68A9um+Jp1H86//ByviaCTGV5GqwQOTfhFwr+/pvO/hZFO3iyBadxeIvm39DJ/xqCq8TGt+K1pPcGR+vL2x7rmAybV/p61K9NK5T1WSLBAd/BSIZECxA+2N1QCyxbZBKObYsDL2x5BpXDo4Duj6djkw0V/RtnRCx1tcuU0lA3AYfqdzT8xa94yjMcJg4mIPETTmU27U0R0ptEkqJ1fE1+6e6FFrGPYhuuU+lFoLAhSUApwKM51Xjk20tp8RzO541K+QusoXv9mcv9/
+    rootUser: AgCdNU/tBlLrl4hLaQbQTt34iIvbojiKXn6lEPLBr1uoWFJZ3RDlXYbbjhp2wgjj0Hp5JrrKXdLdCrgvz2wvBDKARxph1nEFDOtnZL0V8FpTpHzcWr97axzYV4T2OEjePWLk6ju88iWejdMLrRehgjpESuA/UozPFlJ6fZh7TmujJ6WFzeYGTJ+B3KQlDdvwPZKb1G87hYg7cIdTnE6JqnpqiRUCaA9sTrMkUrz5y+/so1eF/71fBYfUQ+t7quwG/1E8gTggOUY++rHuPyjCUgLF46wiyVVlBctMbni8gMQsQ2Xmr/72hE+ewnEAE5zSQYp8IxBPzweQY8j6gfNYUX5Sf5Hv6t/urO0FHhGS+45ZETUOHrDVMxFpB96cgZFQQL/Daf0s5rDMkQlRXHa6+Gk8GSnve4Oe4BF+0NDKc33expOu4PAv3IV9U/ReXLVJYqkoVa+OLWYH+9W+4mT4kKkBUJrwLKeyzFQvE9jpX6asv6M2xsd+wcFbsAPlcFvh19MAxwuvRBHG9hrIZXaOQWOBNAWuAQ+b2A9vWGFMWkYyQMSwqRHy31KizsrIv+7SNCVGsJ/A6a3V9oUUui74P/uCg8C46USf3MpOX1yQS3BoOeiA2vqR8FB8TN5i/LzOV4Qxg/zj0z15RVcFk5qVpRP1kgzKLCB8xDblEF6MQ8XbvJhodIu9R/Kp74v1FuGhmEwDc/VN4Q==
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: minio
+      name: minio-secret
+      namespace: minio
+    type: Opaque
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: minio-console-svc
+  namespace: minio
+  labels:
+    app: minio
+spec:
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 9001
+      protocol: TCP
+      targetPort: 9001
+  selector:
+    app: minio
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: minio-svc
+  namespace: minio
+  labels:
+    app: minio
+    monitoring: "true"
+spec:
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 9000
+      protocol: TCP
+      targetPort: 9000
+  selector:
+    app: minio
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: minio-headless-svc
+  namespace: minio
+  labels:
+    app: minio
+spec:
+  publishNotReadyAddresses: true
+  clusterIP: None
+  ports:
+    - name: http
+      port: 9000
+      protocol: TCP
+      targetPort: 9000
+  selector:
+    app: minio
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: minio
+  namespace: minio
+  labels:
+    app: minio
+spec:
+  updateStrategy:
+    type: RollingUpdate
+  podManagementPolicy: "Parallel"
+  serviceName: minio-headless-svc
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minio
+  template:
+    metadata:
+      name: minio
+      labels:
+        app: minio
+      annotations:
+        checksum/secrets: 4416052d0fd1262b448e571a5abfaf31a0239bb11d8c7ef0b2034f499277ed14
+        checksum/config: 58cad6f4fce926857247dd55ea3710cf348981bd8448f37c3024c8abdd8a9b08
+    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        fsGroupChangePolicy: OnRootMismatch
+      serviceAccountName: minio-sa
+      containers:
+        - name: minio
+          image: quay.io/minio/minio:RELEASE.2024-04-18T19-09-19Z
+          imagePullPolicy: IfNotPresent
+          command: [
+            "/bin/sh",
+            "-ce",
+            "/usr/bin/docker-entrypoint.sh minio server /export -S /etc/minio/certs/ --address :9000 --console-address :9001"
+          ]
+          volumeMounts:
+            - name: export
+              mountPath: /export            
+          ports:
+            - name: http
+              containerPort: 9000
+            - name: http-console
+              containerPort: 9001
+          env:
+            - name: MINIO_ROOT_USER
+              valueFrom:
+                secretKeyRef:
+                  name: minio-secret
+                  key: rootUser
+            - name: MINIO_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: minio-secret
+                  key: rootPassword
+            - name: MINIO_PROMETHEUS_AUTH_TYPE
+              value: "public"
+          resources:
+            requests:
+              memory: 5Gi
+          securityContext:
+            readOnlyRootFilesystem: false      
+      volumes:
+        - name: minio-user
+          secret:
+            secretName: minio-secret        
+  volumeClaimTemplates:
+    - apiVersion: v1
+      kind: PersistentVolumeClaim
+      metadata:
+        name: export
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 150Gi
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: basic-auth-minio
+  namespace: minio
+spec:
+  encryptedData:
+    auth: AgCxgvO76ML+wnhkFpikjTsBT7OldYu1v0LxAmOVyk8rasaVLtorUuarg/vWNCMXK2h4mBcMWfyYrTvQUBmIbupMVcTDsdFa046KJP46/Lzr98aOKqCZxYZi15F8Oa4z7baiIrjC+twx9lwWP2gyXet9zlzTl9uYpnWbd8AAfPWZ1Bgcs0iCwwuVxkVHk4XHFMve/fcfD7jnca28mY7feWXfxKuM1vFVZ9mA9KXFkWqhNHblD1v/NubMzBBdbSDU+kpGwb+qJOgyqhHs5ikf79VRp3eni5ip2CWK70LlMAVLj3cIrRHpgiX7blx+GTqJMzsIaMnHR44c0rXG3Qv2xW1IGqoGNtFaekoBxKCFOVen4HGF9ODONztJxHPJxfxCJdOL/bJ69bM5+ESWFXqB9v13SP0mTstAXZFakSPwIXScQfrLc+vlFSVDV3fYcG6wMHniDLSNKR0exvj4vWi5PcqLk0Pd1baUvJUC81aDstiV12G43uFxAS+UWCpXYbWm9rinaJW/FEmmzGRy0nbkVHZkNSgiCdu+LEBpwmtABR7aUI+aqUrpXU8r7XJS9tz4x9fqGHLXUSD9zsrveL50gSHoFZcbx6zEDiOtjmFYCzvuPopLdQgmWXdXC++7ilBkw2IBlw8m4bV/40idmuMJxIRUQP+E3ArIfOhccX74QXKlbL9JvBnl0zJH1zLacHfxt578XMF/bKjPrZ0vdLdsi+KSl2GdQTGENEbu4r1ymFzBLvu5OacGd1I/iy1eAA==
+  template:
+    metadata:
+      creationTimestamp: null
+      name: basic-auth-minio
+      namespace: minio
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: minio-ingress
+  namespace: minio
+  annotations:
+    nginx.ingress.kubernetes.io/auth-type: basic
+    nginx.ingress.kubernetes.io/auth-secret: basic-auth-minio
+    nginx.ingress.kubernetes.io/auth-realm: 'Authentication Required'
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: minio.homek8s.cloud
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: minio-console-svc
+            port:
+              number: 9001
