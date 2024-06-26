@@ -1,0 +1,77 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: prometheus-stack
+  namespace: monitoring
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: kube-prometheus-stack
+      version: "*"
+      sourceRef:
+        kind: HelmRepository
+        name: kube-prometheus-stack
+      interval: 12h
+  values:
+    fullnameOverride: "prometheus-stack"
+    defaultRules:
+      create: false
+    grafana:
+      persistence:
+        enabled: true
+        type: pvc
+        storageClassName: "longhorn"
+        accessModes:
+          - ReadWriteOnce
+        size: 20Gi
+        finalizers:
+          - kubernetes.io/pvc-protection
+    alertmanager:
+      alertmanagerSpec:
+        useExistingSecret: true
+        replicas: 2
+        storage: 
+          volumeClaimTemplate:
+            spec:
+              storageClassName: longhorn
+              accessModes: ["ReadWriteOnce"]
+              resources:
+                requests:
+                  storage: 20Gi
+              selector: {}
+    kubeControllerManager:
+      enabled: false
+    kubeScheduler:
+      enabled: false
+    kubeEtcd:
+      endpoints:
+        - 192.168.219.71
+        - 192.168.219.72
+        - 192.168.219.73 
+    prometheusOperator:
+      thanosService: 
+        enabled: true
+      thanosServiceMonitor: 
+        enabled: true
+      prometheusSpec:
+        disableCompaction: true
+        externalLabels:
+          cluster: talos.home
+          retention: 7d
+          replicas: 2
+          shards: 2
+          storageSpec:
+            volumeClaimTemplate:
+              spec:
+                storageClassName: longhorn
+                accessModes: ["ReadWriteOnce"]
+                resources:
+                  requests:
+                    storage: 20Gi
+              selector: {}
+          thanos:
+            objectStorageConfig:
+              existingSecret:
+                name: thanos-objstore-config
+                key: thanos.yaml    
