@@ -160,6 +160,7 @@ spec:
       metadata:
         name: export
       spec:
+        storageClassName: longhorn
         accessModes: [ "ReadWriteOnce" ]
         resources:
           requests:
