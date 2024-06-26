@@ -39,7 +39,6 @@ spec:
               resources:
                 requests:
                   storage: 20Gi
-              selector: {}
     kubeControllerManager:
       enabled: false
     kubeScheduler:
