@@ -34,7 +34,6 @@ spec:
         storage: 
           volumeClaimTemplate:
             spec:
-              storageClassName: "longhorn"
               accessModes: ["ReadWriteOnce"]
               resources:
                 requests:
@@ -49,7 +48,7 @@ spec:
         - 192.168.219.71
         - 192.168.219.72
         - 192.168.219.73 
-    prometheusOperator:
+    prometheus:
       thanosService: 
         enabled: true
       thanosServiceMonitor: 
@@ -64,7 +63,6 @@ spec:
         storageSpec:
           volumeClaimTemplate:
             spec:
-              storageClassName: "longhorn"
               accessModes: ["ReadWriteOnce"]
               resources:
                 requests:
