@@ -34,7 +34,7 @@ spec:
         storage: 
           volumeClaimTemplate:
             spec:
-              storageClassName: longhorn
+              storageClassName: "longhorn"
               accessModes: ["ReadWriteOnce"]
               resources:
                 requests:
@@ -58,20 +58,20 @@ spec:
         disableCompaction: true
         externalLabels:
           cluster: talos.home
-          retention: 7d
-          replicas: 2
-          shards: 2
-          storageSpec:
-            volumeClaimTemplate:
-              spec:
-                storageClassName: longhorn
-                accessModes: ["ReadWriteOnce"]
-                resources:
-                  requests:
-                    storage: 20Gi
-              selector: {}
-          thanos:
-            objectStorageConfig:
-              existingSecret:
-                name: thanos-objstore-config
-                key: thanos.yaml    
+        retention: 7d
+        replicas: 2
+        shards: 2
+        storageSpec:
+          volumeClaimTemplate:
+            spec:
+              storageClassName: "longhorn"
+              accessModes: ["ReadWriteOnce"]
+              resources:
+                requests:
+                  storage: 20Gi
+            selector: {}
+        thanos:
+          objectStorageConfig:
+            existingSecret:
+              name: thanos-objstore-config
+              key: thanos.yaml    
