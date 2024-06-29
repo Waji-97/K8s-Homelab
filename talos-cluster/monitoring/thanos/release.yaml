@@ -23,6 +23,7 @@ spec:
       - prometheus-prometheus-stack-prometheus-1.prometheus-operated:10901
       - prometheus-prometheus-stack-prometheus-shard-1-0.prometheus-operated:10901
       - prometheus-prometheus-stack-prometheus-shard-1-1.prometheus-operated:10901
+      replicaLabel: [prometheus_replica]
     bucketweb:
       enabled: true
     compactor:

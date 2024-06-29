@@ -16,7 +16,42 @@ spec:
   values:
     fullnameOverride: "prometheus-stack"
     defaultRules:
-      create: false
+      create: true
+      rules:
+        alertmanager: true
+        etcd: true
+        configReloaders: false
+        general: true
+        k8sContainerCpuUsageSecondsTotal: true
+        k8sContainerMemoryCache: false
+        k8sContainerMemoryRss: false
+        k8sContainerMemorySwap: false
+        k8sContainerResource: true
+        k8sContainerMemoryWorkingSetBytes: true
+        k8sPodOwner: false
+        kubeApiserverAvailability: true
+        kubeApiserverBurnrate: false
+        kubeApiserverHistogram: true
+        kubeApiserverSlos: false
+        kubeControllerManager: false
+        kubelet: true
+        kubeProxy: false
+        kubePrometheusGeneral: true
+        kubePrometheusNodeRecording: false
+        kubernetesApps: false
+        kubernetesResources: true
+        kubernetesStorage: true
+        kubernetesSystem: true
+        kubeSchedulerAlerting: false
+        kubeSchedulerRecording: false
+        kubeStateMetrics: true
+        network: true
+        node: true
+        nodeExporterAlerting: false
+        nodeExporterRecording: true
+        prometheus: true
+        prometheusOperator: true
+        windows: false
     grafana:
       persistence:
         enabled: true
