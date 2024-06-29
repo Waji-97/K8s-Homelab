@@ -93,6 +93,10 @@ controlPlane:
               - bind
               - rshared
               - rw
+      - op: add
+        path: /cluster/etcd/extraArgs
+        value: 
+          listen-metrics-urls: http://0.0.0.0:2381
   schematic:
     customization:
       extraKernelArgs:
