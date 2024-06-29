@@ -30,6 +30,13 @@ spec:
       persistence:
         storageClass: "longhorn"
         size: 8Gi
+      alertmanagers:
+        alertmanagersConfig:
+          alertmanagers:
+            static_configs:
+              - prometheus-stack-alertmanager:9093
+            scheme: http
+            timeout: 10s
     bucketweb:
       enabled: true
     compactor:
