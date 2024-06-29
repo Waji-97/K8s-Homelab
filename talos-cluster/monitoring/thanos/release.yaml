@@ -1,0 +1,54 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: kube-thanos
+  namespace: monitoring
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: thanos
+      version: "*"
+      sourceRef:
+        kind: HelmRepository
+        name: kube-thanos
+      interval: 12h
+  values:
+    clusterDomain: talos.home
+    existingObjstoreSecret: "thanos-objstore-config"
+    bucketweb:
+      enabled: true
+    compactor:
+      enabled: true
+      retentionResolutionRaw: 7d
+      retentionResolution5m: 14d
+      retentionResolution1h: 30d
+      persistence:
+        storageClass: "longhorn"
+        size: 10Gi
+    queryFrontend:
+      enabled: true
+      config: |-
+        type: IN-MEMORY
+        config:
+          max_size: 250MB
+          max_item_size: 125MB
+      extraFlags: 
+      - --query-range.split-interval=24h
+      - --query-range.max-retries-per-request=3
+      - --query-frontend.log-queries-longer-than=60s
+    storegateway:
+      enabled: true
+      persistence:
+        storageClass: "longhorn"
+        size: 10Gi
+    metrics:
+      enabled: true
+      serviceMonitor:
+        enabled: true
+        namespace: "monitoring"
+      prometheusRule:
+        enabled: true
+        default:
+          create: true
+          namespace: "monitoring"

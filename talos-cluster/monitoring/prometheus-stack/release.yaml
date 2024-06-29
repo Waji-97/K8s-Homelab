@@ -57,7 +57,7 @@ spec:
         disableCompaction: true
         externalLabels:
           cluster: talos.home
-        retention: 7d
+        retention: 5d
         replicas: 2
         shards: 2
         storageSpec:
@@ -73,4 +73,4 @@ spec:
           objectStorageConfig:
             existingSecret:
               name: thanos-objstore-config
-              key: thanos.yaml    
+              key: objstore.yml  
