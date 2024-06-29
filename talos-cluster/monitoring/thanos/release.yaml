@@ -24,6 +24,12 @@ spec:
       - prometheus-prometheus-stack-prometheus-shard-1-0.prometheus-operated:10901
       - prometheus-prometheus-stack-prometheus-shard-1-1.prometheus-operated:10901
       replicaLabel: [prometheus_replica]
+    ruler:
+      enabled: true
+      replicaLabel: prometheus_replica
+      persistence:
+        storageClass: "longhorn"
+        size: 8Gi
     bucketweb:
       enabled: true
     compactor:
