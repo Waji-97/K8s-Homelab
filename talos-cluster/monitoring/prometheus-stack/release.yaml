@@ -30,6 +30,7 @@ spec:
     alertmanager:
       alertmanagerSpec:
         useExistingSecret: true
+        configSecret: "alertmanager-prometheus-stack-alertmanager-main"
         replicas: 2
         storage: 
           volumeClaimTemplate:
