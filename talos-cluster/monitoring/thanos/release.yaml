@@ -16,6 +16,10 @@ spec:
   values:
     clusterDomain: talos.home
     existingObjstoreSecret: "thanos-objstore-config"
+    query:
+      enabled: true
+      stores: 
+      - prometheus-stack-thanos-discovery:10901
     bucketweb:
       enabled: true
     compactor:
