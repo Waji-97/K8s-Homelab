@@ -31,7 +31,7 @@ spec:
         storageClass: "longhorn"
         size: 8Gi
       alertmanagers:
-        - http://prometheus-stack-alertmanager.monitoring.svc.talos.home:9093
+      - http://prometheus-stack-alertmanager.monitoring.svc.talos.home:9093
       existingConfigmap: test-cm
     bucketweb:
       enabled: true
