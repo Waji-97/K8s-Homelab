@@ -33,6 +33,7 @@ spec:
       alertmanagers:
       - http://prometheus-stack-alertmanager.monitoring.svc.talos.home:9093
       existingConfigmap: thanos-ruler-cm
+      clusterName: "talos.home"
     bucketweb:
       enabled: true
     compactor:
