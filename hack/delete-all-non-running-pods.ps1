@@ -1,0 +1,1 @@
+kubectl get pods --all-namespaces --field-selector=status.phase!="Running" -o json | ConvertFrom-Json | ForEach-Object { $_.items } | ForEach-Object { $_.metadata.namespace + " " + $_.metadata.name } | ForEach-Object { kubectl delete pod ($_ -split " ")[1] -n ($_ -split " ")[0] }
