@@ -14,9 +14,9 @@ spec:
         name: descheduler
       interval: 12h
   values:
-    schedule: "*/5 * * * *"
+    schedule: "0 9 * * *"
     successfulJobsHistoryLimit: 1
-    failedJobsHistoryLimit: 2
+    failedJobsHistoryLimit: 1
     deschedulerPolicy:
       profiles:
       - name: RemoveDuplicates
