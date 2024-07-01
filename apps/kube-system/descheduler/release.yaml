@@ -17,6 +17,7 @@ spec:
     schedule: "0 9 * * *"
     successfulJobsHistoryLimit: 1
     failedJobsHistoryLimit: 1
+    timeZone: 'Asia/Seoul'
     deschedulerPolicy:
       profiles:
       - name: RemoveDuplicates
