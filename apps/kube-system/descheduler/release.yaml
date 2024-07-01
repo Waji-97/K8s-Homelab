@@ -21,7 +21,6 @@ spec:
         pluginConfig:
           - name: RemoveDuplicates
             args:
-              ignorePvcPods: false
               evictLocalStoragePods: true
               namespaces:
                 exclude:
