@@ -62,6 +62,7 @@ This Git repository contains the following top level directories.
 |[<img width="32" src="https://avatars.githubusercontent.com/u/695951?s=48&v=4">](https://min.io/)|Minio| S3 compatible object store |
 |[<img width="32" src="https://avatars.githubusercontent.com/u/34656521?s=48&v=4">](https://github.com/bitnami-labs/sealed-secrets)|Sealed-Secrets| Encrypting normal Secrets into a SealedSecret  |
 |[<img width="32" src="https://pbs.twimg.com/profile_images/1514327091784962068/rpjUUS_C_400x400.png">](https://www.twingate.com/)|Twingate| VPN replacement to remote access homelab network  |
+|[<img width="38" src="https://raw.githubusercontent.com/kubernetes-sigs/descheduler/master/assets/logo/descheduler-stacked-color.png">](https://github.com/kubernetes-sigs/descheduler)|Descheduler| Descheduler for Kubernetes  |
 
 ---
 
