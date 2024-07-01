@@ -21,7 +21,6 @@ spec:
         pluginConfig:
           - name: RemoveDuplicates
             args:
-              evictLocalStoragePods: true
               namespaces:
                 exclude:
                 - "kube-system"
