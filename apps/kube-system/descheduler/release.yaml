@@ -14,10 +14,7 @@ spec:
         name: descheduler
       interval: 12h
   values:
-    schedule: "0 9 * * *"
-    successfulJobsHistoryLimit: 1
-    failedJobsHistoryLimit: 1
-    timeZone: 'Asia/Seoul'
+    kind: Deployment
     deschedulerPolicy:
       profiles:
       - name: RemoveDuplicates
