@@ -42,6 +42,10 @@ spec:
       enabled: true
     compactor:
       enabled: true
+      resources:
+        limits:
+          cpu: 200m
+          memory: 500Mi
       retentionResolutionRaw: 7d
       retentionResolution5m: 14d
       retentionResolution1h: 30d
