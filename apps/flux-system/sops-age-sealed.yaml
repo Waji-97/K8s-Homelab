@@ -1,0 +1,14 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: sops-age
+  namespace: flux-system
+spec:
+  encryptedData:
+    age.agekey: AgAv/BYMTin4hjD4OQA+lNYjpfbEvNfh1t1xNEw25IMBtDs5818Kd3Ys7okBwS2qvU7A0hVN/MasoFZa44AzaYOWTp+fJfgcN/Hy3U1kVGWBcw56ROkGQ7gxXQ+kAB0VjGkLnL7IjsRCB/O012jHncbFLn9kkVgCqsslPxb0p9hdlaLI42AomWwKL1+Kw0B6hSp01l+JG+mN92RxpKr3bMLMMCtbZsrxOON053ivZt3hzs25Ft4Z9OvZ55lGX+OewXJRT/k5KbOoXh9cNY/LMfaMfRji8tMYIOmgvyGS2J+9tK/qZWmxYr6Djcl4TKzDm+HQVRLZ9Haqhb2Vb/aSboW+o3H4nbAxe7tH4FNV7gcXvM81eX0av2SwiWKNWN02+dk72C31qCELFIEAr+hA4myZj0KrTtUikPEqbb1RMldQwarC0E5SxlDOsTVCg7AoseaCz/T0vNjlmqgk88bHyTnnN7xeSzFxJQ2/moXiUfOlfzYA6XZi4jFSz32+ETI0FV+31Xu+ArtQvjIRw8dsbVC//lUl/GLKCxliiMN9T2GsUHv7dnuNxJd50anszl8vxskN3EiBnvf4aCc6LTSggOQ6B2M74Bc2YhObdCUcnL4QJitLaNfmq0GlKVwcoBVgPCdDtFMrQRwttFECPOs7MqGkqJl9KmkWzrcH7BipJwGqs6VUyax6orrh8zcZ6n0NvberRFjb/SX1OA4UwLlZbQSNoJfOJhTgz8Dd8uckBdu7dNbBt38ByAWAP89M92PkFPILMZkHIkReEAwd60J8r993ncrWE1p6r33ieOCckue160PNLOCmq9tUZOH+x1osguGm8NaRJJt/NYHo/RFr/D4s8W46KrJEaL4lHcSDvGIVzs27Ivy77I7XtVdd8Ny3rdogg23ZAiN5Kh5YgnLRL04iHgQz0mOaITW43y7FCgfBG4u1LVidciWu
+  template:
+    metadata:
+      creationTimestamp: null
+      name: sops-age
+      namespace: flux-system

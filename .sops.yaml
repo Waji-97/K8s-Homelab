@@ -1,0 +1,11 @@
+creation_rules:
+  - path_regex: talos/clusterconfig/.*\.yaml
+    key_groups:
+      - age:
+          - age1zxeuqw0a02arkhj3fv4xexz0agnvts0520msa6r4pk7mnp4dee6q4tqsmf
+
+  - path_regex: apps/cloudflare-operator/clustertunnel\.yaml
+    key_groups:
+      - age:
+          - age1zxeuqw0a02arkhj3fv4xexz0agnvts0520msa6r4pk7mnp4dee6q4tqsmf
+    encrypted_regex: "^(cloudflare)$"
