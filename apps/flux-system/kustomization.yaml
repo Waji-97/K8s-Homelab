@@ -3,3 +3,6 @@ kind: Kustomization
 resources:
 - gotk-components.yaml
 - gotk-sync.yaml
+- discord-secret.yaml
+- github-cred-secret.yaml
+- sops-age-sealed.yaml
