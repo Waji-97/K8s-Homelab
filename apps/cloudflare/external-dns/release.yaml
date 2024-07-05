@@ -20,6 +20,8 @@ spec:
     provider:
       name: cloudflare
       env:
-      - name=cloudflare
-      - valueFrom.secretKeyRef.name=cloudflare-api-key
-      - valueFrom.secretKeyRef.key=apikey
+        - name: CF_API_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: cloudflare-api-key
+              key: apiKey
