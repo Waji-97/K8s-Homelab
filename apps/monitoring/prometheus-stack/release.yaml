@@ -18,8 +18,16 @@ spec:
     defaultRules:
       create: false
     grafana:
+      enabled: false
       persistence:
-        enabled: false
+        enabled: true
+        type: pvc
+        storageClassName: "longhorn"
+        accessModes:
+          - ReadWriteOnce
+        size: 20Gi
+        finalizers:
+          - kubernetes.io/pvc-protection
     alertmanager:
       alertmanagerSpec:
         useExistingSecret: true

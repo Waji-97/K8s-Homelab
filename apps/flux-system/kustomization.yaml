@@ -6,4 +6,5 @@ resources:
 - discord-secret.yaml
 - github-cred-secret.yaml
 - sops-age-sealed.yaml
-- ./discord-alerts
+- discord-alerts/discord-alert.yaml
+- discord-alerts/discord-provider.yaml
