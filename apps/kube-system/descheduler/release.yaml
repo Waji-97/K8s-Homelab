@@ -22,16 +22,16 @@ spec:
         release: prometheus-stack
     kind: Deployment
     deschedulerPolicy:
+      evictLocalStoragePods: true
       profiles:
-      - name: default
-        pluginConfig:
-          - name: RemoveDuplicates
-            args:
-              evictLocalStoragePods: true
-              namespaces:
-                exclude:
-                - "kube-system"
-        plugins:
-          balance:
-            enabled:
-              - RemoveDuplicates
+        - name: default
+          pluginConfig:
+            - name: DefaultEvictor
+              args:
+                ignorePvcPods: true
+                evictLocalStoragePods: true
+            - name: RemoveDuplicates
+          plugins:
+            balance:
+              enabled:
+                - RemoveDuplicates
