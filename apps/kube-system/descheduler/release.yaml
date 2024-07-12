@@ -14,8 +14,15 @@ spec:
         name: descheduler
       interval: 12h
   values:
+    service:
+      enabled: true
+    serviceMonitor:
+      enabled: true
+      additionalLabels:
+        release: prometheus-stack
     kind: Deployment
     deschedulerPolicy:
+      evictLocalStoragePods: true
       profiles:
       - name: RemoveDuplicates
         pluginConfig:

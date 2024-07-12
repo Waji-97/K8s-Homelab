@@ -1,0 +1,22 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: promtail
+  namespace: monitoring
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: promtail
+      version: "*"
+      sourceRef:
+        kind: HelmRepository
+        name: promtail
+      interval: 12h
+  values:
+    fullnameOverride: promtail
+    config:
+      clients:
+        - url: http://loki-headless.observability.svc.talos.home:3100/loki/api/v1/push
+    serviceMonitor:
+      enabled: true
