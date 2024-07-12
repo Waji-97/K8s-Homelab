@@ -20,3 +20,5 @@ spec:
         - url: http://loki-headless.monitoring.svc.talos.home:3100/loki/api/v1/push
     serviceMonitor:
       enabled: true
+      labels:
+        release: prometheus-stack
