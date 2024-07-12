@@ -15,7 +15,7 @@ Homelab Kubernetes Cluster managed by FluxCD & deployed on Talos Linux
 
 <div align="center">
 
-[![talos](https://img.shields.io/badge/talos-v1.7.4-brightgreen?style=for-the-badge&logo=linux&logoColor=white)](https://www.talos.dev/)&nbsp;&nbsp; [![kubernetes](https://img.shields.io/badge/kubernetes-v1.30.1-brightgreen?style=for-the-badge&logo=kubernetes&logoColor=white)](https://kubernetes.io/)
+[![talos](https://img.shields.io/badge/talos-v1.7.5-brightgreen?style=for-the-badge&logo=linux&logoColor=white)](https://www.talos.dev/)&nbsp;&nbsp; [![kubernetes](https://img.shields.io/badge/kubernetes-v1.30.1-brightgreen?style=for-the-badge&logo=kubernetes&logoColor=white)](https://kubernetes.io/)
 
 </div>
 
