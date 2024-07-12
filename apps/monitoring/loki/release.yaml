@@ -18,9 +18,9 @@ spec:
       clusterDomain: talos.home
     deploymentMode: SingleBinary
     loki:
-      structuredConfig:
-        memberlist:
-          bind_addr: []
+      extraMemberlistConfig:
+        bind_addr:
+          - ${MY_POD_IP}
       auth_enabled: false
       analytics:
         reporting_enabled: false
@@ -45,6 +45,13 @@ spec:
         retention_period: 14d
     singleBinary:
       replicas: 1
+      extraArgs:
+        - -config.expand-env=true
+      extraEnv:
+        - name: MY_POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
       persistence:
         enabled: true
         storageClass: longhorn
