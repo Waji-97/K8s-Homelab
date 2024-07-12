@@ -18,17 +18,9 @@ spec:
       clusterDomain: talos.home
     deploymentMode: SingleBinary
     loki:
-      env:
-      - name: MY_POD_IP
-        valueFrom:
-          fieldRef:
-            fieldPath: status.podIP
-      extraArgs:
-        config.expand-env: true
-      config:
+      structuredConfig:
         memberlist:
-          bind_addr:
-            - ${MY_POD_IP}
+          bind_addr: []
       auth_enabled: false
       analytics:
         reporting_enabled: false
