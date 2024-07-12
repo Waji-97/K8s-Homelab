@@ -24,14 +24,13 @@ spec:
     deschedulerPolicy:
       evictLocalStoragePods: true
       profiles:
-      - name: RemoveDuplicates
+      - name: default
         pluginConfig:
           - name: RemoveDuplicates
             args:
               namespaces:
                 exclude:
                 - "kube-system"
-          - name: RemoveDuplicates
         plugins:
           balance:
             enabled:
