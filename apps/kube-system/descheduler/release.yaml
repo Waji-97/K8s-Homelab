@@ -22,12 +22,12 @@ spec:
         release: prometheus-stack
     kind: Deployment
     deschedulerPolicy:
-      evictLocalStoragePods: true
       profiles:
       - name: default
         pluginConfig:
           - name: RemoveDuplicates
             args:
+              evictLocalStoragePods: true
               namespaces:
                 exclude:
                 - "kube-system"
