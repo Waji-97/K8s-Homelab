@@ -41,7 +41,7 @@ spec:
     bucketweb:
       enabled: true
     compactor:
-      enabled: true
+      enabled: false
       resources:
         limits:
           cpu: 200m
