@@ -55,25 +55,14 @@ nodes:
             gateway: 192.168.219.1
         vip:
           ip: 192.168.219.70
-  - hostname: talos-wk-01
-    ipAddress: 192.168.219.74
+  - hostname: talos-worker
+    ipAddress: 192.168.219.90
     controlPlane: false
-    installDisk: /dev/sda
+    installDisk: /dev/nvme0n1
     networkInterfaces:
       - interface: eth0
         addresses:
-          - 192.168.219.74/24
-        routes:
-          - network: 0.0.0.0/0
-            gateway: 192.168.219.1
-  - hostname: talos-wk-02
-    ipAddress: 192.168.219.75
-    controlPlane: false
-    installDisk: /dev/sda
-    networkInterfaces:
-      - interface: eth0
-        addresses:
-          - 192.168.219.75/24
+          - 192.168.219.90/24
         routes:
           - network: 0.0.0.0/0
             gateway: 192.168.219.1
