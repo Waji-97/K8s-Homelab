@@ -20,7 +20,7 @@ spec:
       resources:
         limits:
           cpu: 200m
-          memory: 500Mi
+          memory: 800Mi
       enabled: true
       stores: 
       - prometheus-prometheus-stack-prometheus-0.prometheus-operated:10901

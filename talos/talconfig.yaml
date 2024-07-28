@@ -15,6 +15,9 @@ patches:
     - op: add
       path: /cluster/discovery/enabled
       value: true
+    - op: add
+      path: /machine/features/hostDNS/forwardKubeDNSToHost
+      value: true
 nodes:
   - hostname: talos-ma-01
     ipAddress: 192.168.219.71
@@ -58,6 +61,8 @@ nodes:
   - hostname: talos-worker
     ipAddress: 192.168.219.90
     controlPlane: false
+    nodeLabels:
+      node-role.kubernetes.io/worker: "true"
     installDisk: /dev/nvme0n1
     networkInterfaces:
       - interface: eth0
