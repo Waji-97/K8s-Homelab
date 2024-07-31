@@ -27,20 +27,6 @@ Homelab Kubernetes Cluster managed by FluxCD & deployed on Talos Linux
 ## Welcome to my Homelab! 😊
 The repository is a mono repository for my homelab Kubernetes cluster that implements GitOps practices using **FluxCD**. It also holds Talos configuration files (generated from [**Talhelper**](https://github.com/budimanjojo/talhelper)) for my kubernetes cluster with three control plane nodes & two worker nodes. I don't currently have an exact plan on what I will be running on my homelab, but ultimately I am aiming towards a small self-hosted service.
 
----
-## Architecture ⚡
-![homelab](./docs/homelab-architecture-new.jpg)
-
----
-## Directories 📚
-This Git repository contains the following top level directories.
-<!-- markdownlint-disable MD013 -->
-```sh
-📁 apps         # Applications deployed in Kubernetes defined in code for FluxCD (grouped by namespace)
-📁 docs         # Documentation of deployed components
-📁 hack         # Useful commands/scripts used (hacks?)
-📁 talos        # Talhelper generated configuration files & encrypted secrets
-```
 
 ---
 ## Components ✅
@@ -63,21 +49,42 @@ This Git repository contains the following top level directories.
 |[<img width="32" src="https://avatars.githubusercontent.com/u/695951?s=48&v=4">](https://min.io/)|Minio| S3 compatible object store |
 |[<img width="32" src="https://avatars.githubusercontent.com/u/34656521?s=48&v=4">](https://github.com/bitnami-labs/sealed-secrets)|Sealed-Secrets| Encrypting normal Secrets into a SealedSecret  |
 |[<img width="32" src="https://pbs.twimg.com/profile_images/1514327091784962068/rpjUUS_C_400x400.png">](https://www.twingate.com/)|Twingate| VPN replacement to remote access homelab network  |
-|[<img width="38" src="https://raw.githubusercontent.com/kubernetes-sigs/descheduler/master/assets/logo/descheduler-stacked-color.png">](https://github.com/kubernetes-sigs/descheduler)|Descheduler| Descheduler for Kubernetes  |
+|[<img width="168" src="https://kubevirt.io/assets/images/KubeVirt_logo_color.svg">](https://kubevirt.io/)|KubeVirt| Posses traditional VMs inside Kubernetes as Pods |
+|[<img width="168" src="https://kubevirt.io/assets/images/KubeVirt_logo_color.svg">](https://github.com/kubevirt/containerized-data-importer/)|CDI| a declarative way to build Virtual Machine Disks on PVCs |
+|[<img width="38" src="https://avatars.githubusercontent.com/u/119124942?s=200&v=4">](hhttps://github.com/kubevirt-manager/kubevirt-manager/)|KubeVirt Manager| aSimple Angular Frontend Web UI Interface to operate Kubevirt |
 
 ---
+## Hardware ⚡
+| Device                      | Count | Disk Size |  Ram  | CPU        | Operating System | Purpose              |
+|-----------------------------|-------|-----------|-------|------------|------------------|----------------------|
+| Custom Made PC              | 1     | 1TB NVMe  | 64GB  | 24C/32T    |Talos             | Kubernetes Worker    |
+| Mini PC 1                   | 1     | 64GB SSD  | 16GB  | 4C/4T      |Talos             | Kubernetes Master 1  |
+| Mini PC 2                   | 1     | 64GB SSD  | 16GB  | 4C/4T      |Talos             | Kubernetes Master 2  |
+| Mini PC 3                   | 1     | 64GB SSD  | 16GB  | 4C/4T      |Talos             | Kubernetes Master 3  |
 
+
+---
+## Directories 📚
+This Git repository contains the following top level directories.
+<!-- markdownlint-disable MD013 -->
+```sh
+📁 apps         # Applications deployed in Kubernetes defined in code for FluxCD (grouped by namespace)
+📁 docs         # Documentation of deployed components
+📁 hack         # Useful commands/scripts used (hacks?)
+📁 talos        # Talhelper generated configuration files & encrypted secrets
+```
+---
 ## Upcoming 💡
 
 - [x] Kubernetes Bootstraping using Talos - Talhelper
 - [x] GitOps using CD tool - FluxCD
-- [ ] Backup tool implementation
-- [ ] Cluster Policy Management
-- [ ] Integrated dashboard for homelab
-- [ ] Observability stack - Metrics, Logging & Tracing 
-- [ ] SSO implementation
-- [ ] Security tool implementation
-- [ ] Automation - Repo & Component related
+- [ ] Backup tool implementation - Velero (most likely)
+- [ ] Cluster Policy Management - OPA or Kyverno
+- [ ] Integrated dashboard for homelab - (not sure)
+- [ ] Observability stack - Metrics, Logging & Tracing
+- [ ] SSO implementation - Keycloak and some auth proxy
+- [ ] Security tool implementation - Falco
+- [ ] Automation - Repo & Component related - Renovate + more
 
 ---
 
