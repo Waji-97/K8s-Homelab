@@ -25,7 +25,7 @@ Homelab Kubernetes Cluster managed by FluxCD & deployed on Talos Linux
 
  
 ## Welcome to my Homelab! 😊
-The repository is a mono repository for my homelab Kubernetes cluster that implements GitOps practices using **FluxCD**. It also holds Talos configuration files (generated from [**Talhelper**](https://github.com/budimanjojo/talhelper)) for my kubernetes cluster with three control plane nodes & two worker nodes. I don't currently have an exact plan on what I will be running on my homelab, but ultimately I am aiming towards a small self-hosted service.
+The repository is a mono repository for my homelab Kubernetes cluster that implements GitOps practices using **FluxCD**. It also holds Talos configuration files (generated from [**Talhelper**](https://github.com/budimanjojo/talhelper)) for my kubernetes cluster with three control plane nodes & a single beefy worker node.
 
 
 ---
