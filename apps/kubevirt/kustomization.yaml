@@ -1,0 +1,8 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- ./ns.yaml
+- ./basic-auth-sealed-secret-kubevirt-manager.yaml
+- ./kubevirt-operator/kubevirt-operator.yaml
+- ./kubevirt-operator/kubevirt-cr.yaml
+- ./kubevirt-manager/kubevirtmanager.yaml
