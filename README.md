@@ -49,9 +49,9 @@ The repository is a mono repository for my homelab Kubernetes cluster that imple
 |[<img width="32" src="https://avatars.githubusercontent.com/u/695951?s=48&v=4">](https://min.io/)|Minio| S3 compatible object store |
 |[<img width="32" src="https://avatars.githubusercontent.com/u/34656521?s=48&v=4">](https://github.com/bitnami-labs/sealed-secrets)|Sealed-Secrets| Encrypting normal Secrets into a SealedSecret  |
 |[<img width="32" src="https://pbs.twimg.com/profile_images/1514327091784962068/rpjUUS_C_400x400.png">](https://www.twingate.com/)|Twingate| VPN replacement to remote access homelab network  |
-|[<img width="32" src="https://avatars.githubusercontent.com/u/18700703?s=200&v=4">](https://kubevirt.io/)|KubeVirt| Posses traditional VMs inside Kubernetes as Pods |
+|[<img width="32" src="https://avatars.githubusercontent.com/u/18700703?s=200&v=4">](https://kubevirt.io/)|KubeVirt| Run traditional VMs inside Kubernetes as Pods |
 |[<img width="32" src="https://avatars.githubusercontent.com/u/18700703?s=200&v=4">](https://github.com/kubevirt/containerized-data-importer/)|CDI| a declarative way to build Virtual Machine Disks on PVCs |
-|[<img width="32" src="https://avatars.githubusercontent.com/u/119124942?s=200&v=4">](hhttps://github.com/kubevirt-manager/kubevirt-manager/)|KubeVirt Manager| aSimple Angular Frontend Web UI Interface to operate Kubevirt |
+|[<img width="32" src="https://avatars.githubusercontent.com/u/119124942?s=200&v=4">](hhttps://github.com/kubevirt-manager/kubevirt-manager/)|KubeVirt Manager| a simple Angular Frontend Web UI Interface to operate Kubevirt |
 
 ---
 ## Hardware ⚡
