@@ -63,6 +63,8 @@ spec:
         clusterDomain: talos.home
       ui:
         enabled: true
+      relay:
+        enabled: true
     ipam:
       mode: kubernetes
       operator:
