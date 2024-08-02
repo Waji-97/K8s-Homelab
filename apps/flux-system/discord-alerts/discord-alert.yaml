@@ -19,4 +19,4 @@ spec:
     - kind: ImageRepository
       name: '*'
   exclusionList:
-    - ".*cdis.cdi.kubevirt.io.*"
+    - ".*cdis.*"
