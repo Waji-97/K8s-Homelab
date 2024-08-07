@@ -31,7 +31,7 @@ spec:
       architecture: amd64
       domain:
         cpu:
-          cores: 2
+          cores: 4
         devices:
           disks:
           - disk:
@@ -48,7 +48,7 @@ spec:
           type: q35
         resources:
           requests:
-            memory: 2G
+            memory: 8G
       networks:
       - name: default
         pod: {}
