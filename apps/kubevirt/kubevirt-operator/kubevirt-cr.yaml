@@ -6,9 +6,14 @@ metadata:
 spec:
   certificateRotateStrategy: {}
   configuration:
+    network:
+      binding:
+        macvtap:
+          domainAttachmentType: "tap"
     developerConfiguration:
       # useEmulation: true
-      featureGates: []
+      featureGates: 
+        - NetworkBindingPlugins
   customizeComponents: {}
   imagePullPolicy: IfNotPresent
   workloadUpdateStrategy: {}
