@@ -18,6 +18,8 @@ spec:
         name: cilium
       interval: 12h
   values:
+    cni:
+      exclusive: false
     k8sServiceHost: localhost
     k8sServicePort: 7445
     securityContext:
