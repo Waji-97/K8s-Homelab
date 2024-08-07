@@ -1,0 +1,78 @@
+apiVersion: cdi.kubevirt.io/v1beta1
+kind: DataVolume
+metadata:
+  name: bastion-volume
+  namespace: vms
+spec:
+  source:
+    http:
+      url: "https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img"
+  pvc:
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: "20Gi"
+---
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  labels:
+    kubevirt.io/os: linux
+  name: bastion-vm
+  namespace: vms
+spec:
+  running: false
+  template:
+    metadata:
+      labels:
+        kubevirt.io/domain: bastion
+    spec:
+      architecture: amd64
+      domain:
+        cpu:
+          cores: 2
+        devices:
+          disks:
+          - disk:
+              bus: virtio
+            name: disk0
+          - cdrom:
+              bus: sata
+              readonly: true
+            name: cloudinitdisk
+          interfaces:
+          - name: default
+            bridge: {}
+        machine:
+          type: q35
+        resources:
+          requests:
+            memory: 4G
+      networks:
+      - name: default
+        pod: {}
+      volumes:
+      - name: disk0
+        persistentVolumeClaim:
+          claimName: bastion-volume
+      - cloudInitNoCloud:
+          secretRef:
+            name: bastion-vm-secret
+        name: cloudinitdisk
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bastion-svc
+  namespace: vms
+spec:
+  ports:
+  - port: 22
+    name: ssh
+    protocol: TCP
+    targetPort: 22
+  selector:
+    kubevirt.io/domain: bastion
+  loadBalancerIP: 192.168.219.200
+  type: LoadBalancer
