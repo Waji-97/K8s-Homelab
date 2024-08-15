@@ -5,4 +5,4 @@ resources:
 - ./repository.yaml
 - ./release.yaml
 - ./sealed-arc.yaml
-- ./runners/
+- ./runner.yaml
