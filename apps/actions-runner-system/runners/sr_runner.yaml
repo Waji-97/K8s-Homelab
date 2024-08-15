@@ -8,6 +8,6 @@ spec:
   template:
     spec:
       ephemeral: false
-      repository: Waji-97/SeoulRobotics_Assignment
+      repository: Waji-97/SeoulRobotics-Assignment
       labels:
         - talos_k8s
