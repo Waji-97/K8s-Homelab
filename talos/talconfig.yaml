@@ -71,6 +71,17 @@ nodes:
         routes:
           - network: 0.0.0.0/0
             gateway: 192.168.219.1
+      - interface: br0
+        addresses:
+          - 192.168.219.91/24
+        bridge:
+          stp:
+            enabled: true
+          interfaces:
+            - eth1
+        routes:
+          - network: 0.0.0.0/0
+            gateway: 192.168.219.1
 controlPlane:
   patches:
     - |-
