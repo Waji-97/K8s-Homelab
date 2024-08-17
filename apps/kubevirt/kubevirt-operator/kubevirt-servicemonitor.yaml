@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    prometheus.kubevirt.io: "true"
+    prometheus: monitoring
+    release: prometheus-stack
+  name: kubevirt-servicemonitor
+  namespace: kubevirt
+spec:
+  endpoints:
+  - port: metrics
+    scheme: https
+    tlsConfig:
+      insecureSkipVerify: true
+  jobLabel: prometheus.kubevirt.io
+  selector:
+    matchLabels:
+      prometheus.kubevirt.io: "true"

@@ -4,3 +4,4 @@ resources:
 - ./ns.yaml
 - ./kubevirt-operator/kubevirt-operator.yaml
 - ./kubevirt-operator/kubevirt-cr.yaml
+- ./kubevirt-opertaor/kubevirt-servicemonitor.yaml
