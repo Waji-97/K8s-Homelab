@@ -51,7 +51,6 @@ The repository is a mono repository for my homelab Kubernetes cluster that imple
 |[<img width="32" src="https://pbs.twimg.com/profile_images/1514327091784962068/rpjUUS_C_400x400.png">](https://www.twingate.com/)|Twingate| VPN replacement to remote access homelab network  |
 |[<img width="32" src="https://avatars.githubusercontent.com/u/18700703?s=200&v=4">](https://kubevirt.io/)|KubeVirt| Run traditional VMs inside Kubernetes as Pods |
 |[<img width="32" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWuYeSTTtsIh4Y1MiuJadIsp-W2dlBcMEO9Q&s">](https://github.com/k8snetworkplumbingwg/multus-cni)| Multus | a CNI plugin that enables attaching multiple network interfaces to pods |
-|[<img width="32" src="https://avatars.githubusercontent.com/u/119124942?s=200&v=4">](https://github.com/kubevirt-manager/kubevirt-manager/)|KubeVirt Manager| a simple Angular Frontend Web UI Interface to operate Kubevirt |
 |[<img width="32" src="https://avatars.githubusercontent.com/u/39950598?s=48&v=4">](https://github.com/cert-manager/cert-manager/)| Cert-Manager | Cloud native certificate management |
 |[<img width="32" src="https://avatars.githubusercontent.com/u/44036562?s=48&v=4">](https://github.com/cert-manager/cert-manager/)| Actions Runner Controller | Kubernetes controller for GitHub Actions self-hosted runners |
 
