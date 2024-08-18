@@ -14,7 +14,6 @@ spec:
         name: twingate
       interval: 12h
   values:
-    hostNetwork: true
     connector:
       logLevel: "error"
       network: "wajiwos14"
