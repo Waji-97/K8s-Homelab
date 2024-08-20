@@ -20,7 +20,7 @@ spec:
         provider="keycloak-oidc"
         provider_display_name="Keycloak"
         redirect_url="https://oauth2-proxy.homek8s.cloud/oauth2/callback"
-        oidc_issuer_url="https://keycloak.homek8s.cloud/realms/homelab"
+        oidc_issuer_url="https://keycloak.homek8s.cloud/auth/realms/homelab"
         code_challenge_method="S256"
         ssl_insecure_skip_verify=true
         http_address="0.0.0.0:4180"
