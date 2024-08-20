@@ -9,5 +9,4 @@ resources:
 - ./keycloak-crossplane/provider-config.yaml
 - ./keycloak-crossplane/realm.yaml
 - ./keycloak-crossplane/client.yaml
-- ./keycloak-crossplane/audience-mapper.yaml
 - ./keycloak-crossplane/waji-user.yaml
