@@ -15,7 +15,7 @@ spec:
       interval: 12h
   values:
     config:
-      clientID: "oauth2-proxy"
+      existingSecret: oauth2-proxy-secret
       cookieName: "oauth2-proxy"
       configFile: |-
         provider="keycloak-oidc"
@@ -32,8 +32,6 @@ spec:
         scope="openid"
         whitelist_domains=[".homek8s.cloud"]
         insecure_oidc_allow_unverified_email="true"
-    auth:
-      existingSecret: oauth2-proxy-secret
     sessionStorage:
       type: redis
       redis:
