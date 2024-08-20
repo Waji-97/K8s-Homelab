@@ -15,4 +15,3 @@ spec:
       creationTimestamp: null
       name: oauth2-proxy-secret
       namespace: oauth2-proxy
-    type: kubernetes.io/basic-auth
