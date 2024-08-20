@@ -13,3 +13,7 @@ spec:
         kind: HelmRepository
         name: crossplane
       interval: 12h
+  install:
+    crds: Create
+  upgrade:
+    crds: CreateReplace
