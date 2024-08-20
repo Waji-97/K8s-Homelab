@@ -52,6 +52,9 @@ The repository is a mono repository for my homelab Kubernetes cluster that imple
 |[<img width="32" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWuYeSTTtsIh4Y1MiuJadIsp-W2dlBcMEO9Q&s">](https://github.com/k8snetworkplumbingwg/multus-cni)| Multus | a CNI plugin that enables attaching multiple network interfaces to pods |
 |[<img width="32" src="https://avatars.githubusercontent.com/u/39950598?s=48&v=4">](https://github.com/cert-manager/cert-manager/)| Cert-Manager | Cloud native certificate management |
 |[<img width="32" src="https://avatars.githubusercontent.com/u/44036562?s=48&v=4">](https://github.com/cert-manager/cert-manager/)| Actions Runner Controller | Kubernetes controller for GitHub Actions self-hosted runners |
+|[<img width="32" src="https://avatars.githubusercontent.com/u/45158470?s=48&v=4">](https://github.com/crossplane/crossplane)| Crossplane | Kubernetes extension for building cloud native control planes |
+|[<img width="32" src="https://avatars.githubusercontent.com/u/4921466?s=48&v=4">](https://github.com/keycloak/keycloak)| Keycloak | Open Source Identity and Access Management |
+|[<img width="32" src="https://avatars.githubusercontent.com/u/62798169?s=48&v=4">](https://github.com/oauth2-proxy/oauth2-proxy)| Oauth2-Proxy | Reverse proxy server that provides authentication using providers |
 
 
 ---
@@ -79,11 +82,11 @@ This Git repository contains the following top level directories.
 
 - [x] Kubernetes Bootstraping using Talos - Talhelper
 - [x] GitOps using CD tool - FluxCD
+- [x] SSO implementation - Keycloak and some auth proxy
 - [ ] Backup tool implementation - Velero (most likely)
 - [ ] Cluster Policy Management - OPA or Kyverno
 - [ ] Integrated dashboard for homelab - (not sure)
 - [ ] Observability stack - Metrics, Logging & Tracing
-- [ ] SSO implementation - Keycloak and some auth proxy
 - [ ] Security tool implementation - Falco
 - [ ] Automation - Repo & Component related - Renovate + more
 
