@@ -4,6 +4,3 @@ resources:
 - ./ns.yaml
 - ./repository.yaml
 - ./release.yaml
-- ./keycloak-crossplane/provider.yaml
-- ./keycloak-crossplane/keycloak-auth.yaml
-- ./keycloak-crossplane/provider-config.yaml
