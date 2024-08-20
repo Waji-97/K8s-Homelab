@@ -1,0 +1,15 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: keycloak-admin-password
+  namespace: keycloak
+spec:
+  encryptedData:
+    password: AgCZztJ7a1sXu4dv2zp8GggQJS2Pq54mb1sgHxFJD/SGwrtEUSrtPlu2Y1mIoWreK5ruFYQfSkCYcD2YW/cfiZiUThtRPez5pLRk1aAxY7eRcnItXm8tn1H7XTJSpJFmJP6RD+Ku1QpLPfaJLPbQK0E4BdFDUjlBDQ50MW0fyD33TzbiXv+e8ZvPWRjpNIgGPLa6WBzw1vYIwDkpFFFNWvuuBwyBU5d6e2Y79/EkXYWYOaIBsBkeXSlNzriaBhl4E/tPkJjmlGGdvRkSd/oTHOqXYYzZ6fjtOVYdOGPNr4Afbj4Czi7dgg6LzloFaI2vUPGpOKVXKY6eIoY97S5KXFtADOx2Ye6TnanAvpaIA95AdWU8DDRkzQ5LOHhp6THJFZdQ/NjFrygYNw/QiPBwr20DFsS7pSfoa64bn3YpI8vj0MzQKAXE8I6lrKnvzFcjjwiZ4T91Ij3ZMb1SYtYhmnQWFNKFNBZ3TdDZXBz+uW2NK0mJlmp9HgkBP8EyD7iuzPsLa0bwJpokgS0DQARcTyd41yZPiHKsjtiBFtgfgv7Qqw0gWT4k9ZskUcjDjCeL3LRsF2n6b+ZxbfDe9A+HYxcziZ0ZuZ5DLUuGApmM5aw8QoYosLbDyFsX0sSX9xwTigcBIsf/PGf4baMftTb+t3hSvUdCE6/SHWMa/z6bbFgTQg0BnS1Ceg6FyNi+YJghuRX1I7x4p8wpD4H6qg==
+  template:
+    metadata:
+      creationTimestamp: null
+      name: keycloak-admin-password
+      namespace: keycloak
+    type: Opaque

@@ -1,0 +1,19 @@
+apiVersion: client.keycloak.crossplane.io/v1alpha1
+kind: ProtocolMapper
+metadata:
+  name: aud-mapper-oauth2-proxy
+spec:
+  forProvider:
+    clientIdRef:
+      name: oauth2-proxy
+    realmIdRef:
+      name: homelab
+    protocol: openid-connect
+    protocolMapper: oidc-audience-mapper
+    name: aud-mapper-oauth2-proxy
+    config:
+      "included.client.audience": "oauth2-proxy"
+      "id.token.claim": "true"
+      "access.token.claim": "true"
+  providerConfigRef:
+    name: default

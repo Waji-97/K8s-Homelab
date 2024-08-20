@@ -1,0 +1,19 @@
+apiVersion: openidclient.keycloak.crossplane.io/v1alpha1
+kind: Client
+metadata:
+  name: oauth2-proxy
+spec:
+  deletionPolicy: Delete
+  forProvider:
+    name: oauth2-proxy
+    accessType: CONFIDENTIAL
+    clientId: oauth2-proxy
+    realmIdRef:
+      name: homelab
+    clientSecretSecretRef:
+      name: oauth2-proxy-oidc-credentials
+      namespace: oauth2-proxy
+      key: secret
+    standardFlowEnabled: true
+    validRedirectUris:
+      - "https://oauth2-proxy.homek8s.cloud/oauth2/callback"

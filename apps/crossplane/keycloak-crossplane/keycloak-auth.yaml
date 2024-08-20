@@ -1,0 +1,17 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: keycloak-credentials
+  namespace: crossplane
+spec:
+  encryptedData:
+    credentials: AgCc59bx17JXKiH2yWQJFggW69cNsUynrC2qR9g1J88/13rRANQ5HiQpvmze68n5nWre0U1unDzk8svLLlfbjmShSNabvtqLAuQRb1KH2fQTDxYPJk389SQb41uzn05bY2rLePFCtEMqlmTgKWr9g9SUX3XUFxyTaZBYyYxoc82CQyw0V+tiBxXIoM5YBYMGV6GrGBUnfKwJjzyDgfrr0KoqzZbiKUIel6Uj8nBGEFe8OcNBu2f3wasEPEidE2qY9DqLup7Xo9h2OmClMAIQiHT4qr0gGIDkUHH0yKAnkUnlV7jGr9/fu2Xk3O/kldnWTZ+SW+8idA6X23+t5rIRjnBlTST3vwUX6fZgQWK2qbpjkASJPhr31y2o4gx+NjuNdJufhbHZO5Vo2hIBh/FLSHP6BiJAPXv7bGWwsy41WzjhKsaH4MbhU/BwZZURlkcCpgdVkd+Jn7Hj5R3gXSbqR5/oWm5SSrREfARlYcHUmL/Y2Jw8TTAtiRyFKVoA3VplWMr0RfM4Mkkd0ZxnghaseG6RguW697Bkb11trG49HTpXJZf7yJIeor5PozKXnXW6M+Z+ZBEpRRoar43Pdw1xkJn5cWbkTcc2zj3drv/7H9/9IDqaHmeZptAgtWRwGcmGncShBZ582iksBqHKu1sgnnzOmYRH//q8ccmMmAv87TjgVzBClZPrgYdWDFW9qF1XN1faZzdptUyFKKPaU5cFSWxep07ja6e0c1vWwzQaBP5bFYpPLmEvfv0eS8ap/MjCxzqdY6roGo8P5yBkR+AJ+BcsmFTl7nq370l+mJ99RitT13eeS7JN0hLXfJlvj7zswRrkhduqz5QBXXS3loqHLzCZVyFMRNJDINpWAt00IPvRYj8BPkfi2Cnw
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        type: provider-credentials
+      name: keycloak-credentials
+      namespace: crossplane
+    type: Opaque
