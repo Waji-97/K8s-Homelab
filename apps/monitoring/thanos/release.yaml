@@ -24,9 +24,7 @@ spec:
       enabled: true
       stores: 
       - prometheus-prometheus-stack-prometheus-0.prometheus-operated:10901
-      - prometheus-prometheus-stack-prometheus-1.prometheus-operated:10901
       - prometheus-prometheus-stack-prometheus-shard-1-0.prometheus-operated:10901
-      - prometheus-prometheus-stack-prometheus-shard-1-1.prometheus-operated:10901
       replicaLabel: [prometheus_replica]
     ruler:
       enabled: true
