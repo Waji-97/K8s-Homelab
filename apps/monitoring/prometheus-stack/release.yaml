@@ -32,7 +32,7 @@ spec:
       alertmanagerSpec:
         useExistingSecret: true
         configSecret: "alertmanager-prometheus-stack-alertmanager-main"
-        replicas: 2
+        replicas: 1
         storage: 
           volumeClaimTemplate:
             spec:
@@ -60,7 +60,7 @@ spec:
         externalLabels:
           cluster: talos.home
         retention: 5d
-        replicas: 2
+        replicas: 1
         shards: 2
         storageSpec:
           volumeClaimTemplate:
