@@ -76,8 +76,6 @@ spec:
       tsdbRetention: 7d
       replicationFactor: 3
       replicaLabel: prometheus_replica
-      extraFlags:
-      - --remote-write.address=0.0.0.0:10908
     metrics:
       enabled: true
       serviceMonitor:
