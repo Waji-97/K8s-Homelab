@@ -43,7 +43,7 @@ spec:
       extraFlags:
       - --deduplication.replica-label="prometheus_replica"
       - --compact.enable-vertical-compaction
-      - --deduplication.func=penalty
+      #- --deduplication.func=penalty
       resources:
         limits:
           cpu: 200m
@@ -81,6 +81,8 @@ spec:
           - "127.0.0.1:10901"
           - "127.0.0.1:19291"
       replicaLabel: prometheus_replica
+    receiveDistributor:
+      enabled: true
     metrics:
       enabled: true
       serviceMonitor:
