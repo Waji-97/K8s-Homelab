@@ -60,15 +60,15 @@ spec:
           cluster: talos.home
         retention: 5d
         replicas: 2
-        storageSpec:
-          volumeClaimTemplate:
-            spec:
-              storageClassName: longhorn
-              accessModes: ["ReadWriteOnce"]
-              resources:
-                requests:
-                  storage: 10Gi
-            selector: {}
+        # storageSpec:
+        #   volumeClaimTemplate:
+        #     spec:
+        #       storageClassName: longhorn
+        #       accessModes: ["ReadWriteOnce"]
+        #       resources:
+        #         requests:
+        #           storage: 10Gi
+        #     selector: {}
         thanos:
           objectStorageConfig:
             existingSecret:
