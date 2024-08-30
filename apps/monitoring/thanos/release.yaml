@@ -77,7 +77,7 @@ spec:
       replicationFactor: 3
       config:
         - endpoints:
-          - "127.0.0.1:19291"
+          - "kube-thanos-receive:19291"
       replicaLabel: prometheus_replica
     receiveDistributor:
       enabled: true
