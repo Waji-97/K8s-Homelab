@@ -91,7 +91,7 @@ spec:
       replicaLabel: prometheus_replica
     receiveDistributor:
       enabled: true
-      replicationFactor: 3
+      #replicationFactor: 3
       resources:
         requests:
           cpu: 150m

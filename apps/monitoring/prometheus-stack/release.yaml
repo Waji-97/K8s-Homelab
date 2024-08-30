@@ -60,7 +60,7 @@ spec:
         externalLabels:
           cluster: talos.home
         retention: 5d
-        replicas: 2
+        replicas: 1
         storageSpec:
           volumeClaimTemplate:
             spec:
@@ -68,7 +68,7 @@ spec:
               accessModes: ["ReadWriteOnce"]
               resources:
                 requests:
-                  storage: 8Gi
+                  storage: 5Gi
             selector: {}
         thanos:
           objectStorageConfig:
