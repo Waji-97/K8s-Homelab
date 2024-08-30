@@ -73,11 +73,13 @@ spec:
         size: 10Gi
     receive:
       enabled: true
+      logLevel: debug
+      #replicationFactor: 3
       persistence:
         storageClass: "longhorn"
         size: 8Gi
       service:
-        additionalHeadless: true
+        additionalHeadless: false
       resources:
         requests:
           cpu: 150m
@@ -85,26 +87,17 @@ spec:
         limits:
           cpu: 200m
           memory: 2048Mi
-      mode: dual-mode
+      mode: standalone #dual-mode
       tsdbRetention: 7d
-      replicaCount: 3
+      replicaCount: 1
       config:
         - endpoints:
-          - "kube-thanos-receive-0.kube-thanos-receive-headless.monitoring.svc.talos.home:10901"
-          - "kube-thanos-receive-1.kube-thanos-receive-headless.monitoring.svc.talos.home:10901"
-          - "kube-thanos-receive-2.kube-thanos-receive-headless.monitoring.svc.talos.home:10901"
+          - "kube-thanos-receive-0.kube-thanos-receive.monitoring.svc.talos.home:10901"
       replicaLabel: prometheus_replica
     receiveDistributor:
-      enabled: true
-      replicationFactor: 3
-      resources:
-        requests:
-          cpu: 150m
-          memory: 150Mi
-        limits:
-          cpu: 200m
-          memory: 1024Mi
-      replicaLabel: prometheus_replica
+      enabled: false
+      #replicationFactor: 3
+      #replicaLabel: prometheus_replica
     metrics:
       enabled: true
       serviceMonitor:
