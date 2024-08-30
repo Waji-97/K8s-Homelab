@@ -75,9 +75,9 @@ spec:
       enabled: true
       logLevel: debug
       #replicationFactor: 3
-      persistence:
-        storageClass: "longhorn"
-        size: 8Gi
+      # persistence:
+      #   storageClass: "longhorn"
+      #   size: 8Gi
       service:
         additionalHeadless: false
       resources:
