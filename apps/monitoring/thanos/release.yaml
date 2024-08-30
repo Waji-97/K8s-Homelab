@@ -71,16 +71,20 @@ spec:
         size: 10Gi
     receive:
       enabled: true
+      service:
+        additionalHeadless: true
       mode: dual-mode
       tsdbRetention: 7d
       replicaCount: 3
-      replicationFactor: 3
       config:
         - endpoints:
-          - "kube-thanos-receive:19291"
+          - "kube-thanos-receive-0:10901"
+          - "kube-thanos-receive-1:10901"
+          - "kube-thanos-receive-2:10901"
       replicaLabel: prometheus_replica
     receiveDistributor:
       enabled: true
+      replicationFactor: 3
       replicaLabel: prometheus_replica
     metrics:
       enabled: true
