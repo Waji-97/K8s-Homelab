@@ -74,9 +74,12 @@ spec:
       service:
         additionalHeadless: true
       resources:
+        requests:
+          cpu: 150m
+          memory: 150Mi
         limits:
           cpu: 200m
-          memory: 700Mi
+          memory: 2048Mi
       mode: dual-mode
       tsdbRetention: 7d
       replicaCount: 3
@@ -95,7 +98,7 @@ spec:
           memory: 150Mi
         limits:
           cpu: 200m
-          memory: 700Mi
+          memory: 1024Mi
       replicaLabel: prometheus_replica
     metrics:
       enabled: true
