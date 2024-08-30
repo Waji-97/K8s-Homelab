@@ -73,6 +73,7 @@ spec:
       enabled: true
       mode: dual-mode
       tsdbRetention: 7d
+      replicaCount: 3
       replicationFactor: 3
       config:
         - endpoints:
@@ -80,6 +81,7 @@ spec:
       replicaLabel: prometheus_replica
     receiveDistributor:
       enabled: true
+      replicaLabel: prometheus_replica
     metrics:
       enabled: true
       serviceMonitor:
