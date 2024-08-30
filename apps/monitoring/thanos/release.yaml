@@ -52,7 +52,7 @@ spec:
       retentionResolution1h: 30d
       persistence:
         storageClass: "longhorn"
-        size: 10Gi
+        size: 20Gi
     queryFrontend:
       enabled: true
       config: |-
@@ -76,7 +76,7 @@ spec:
       resources:
         limits:
           cpu: 200m
-          memory: 500Mi
+          memory: 700Mi
       mode: dual-mode
       tsdbRetention: 7d
       replicaCount: 3
