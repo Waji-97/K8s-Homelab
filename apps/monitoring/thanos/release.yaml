@@ -73,6 +73,10 @@ spec:
       enabled: true
       service:
         additionalHeadless: true
+      resources:
+        limits:
+          cpu: 200m
+          memory: 500Mi
       mode: dual-mode
       tsdbRetention: 7d
       replicaCount: 3
