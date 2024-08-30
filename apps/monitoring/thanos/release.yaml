@@ -78,9 +78,9 @@ spec:
       replicaCount: 3
       config:
         - endpoints:
-          - "kube-thanos-receive-0:10901"
-          - "kube-thanos-receive-1:10901"
-          - "kube-thanos-receive-2:10901"
+          - "kube-thanos-receive-0.kube-thanos-receive-headless:10901"
+          - "kube-thanos-receive-1.kube-thanos-receive-headless:10901"
+          - "kube-thanos-receive-2.kube-thanos-receive-headless:10901"
       replicaLabel: prometheus_replica
     receiveDistributor:
       enabled: true
