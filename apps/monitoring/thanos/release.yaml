@@ -89,6 +89,13 @@ spec:
     receiveDistributor:
       enabled: true
       replicationFactor: 3
+      resources:
+        requests:
+          cpu: 150m
+          memory: 150Mi
+        limits:
+          cpu: 200m
+          memory: 700Mi
       replicaLabel: prometheus_replica
     metrics:
       enabled: true
