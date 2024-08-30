@@ -54,21 +54,21 @@ spec:
       agentMode: true
       prometheusSpec:
         remoteWrite:
-        - url: http://kube-thanos-receive.monitoring.svc.talos.home:19291/api/v1/receive
+        - url: http://kube-thanos-receive:19291/api/v1/receive
         disableCompaction: true
         externalLabels:
           cluster: talos.home
         retention: 5d
         replicas: 2
-        # storageSpec:
-        #   volumeClaimTemplate:
-        #     spec:
-        #       storageClassName: longhorn
-        #       accessModes: ["ReadWriteOnce"]
-        #       resources:
-        #         requests:
-        #           storage: 10Gi
-        #     selector: {}
+        storageSpec:
+          volumeClaimTemplate:
+            spec:
+              storageClassName: longhorn
+              accessModes: ["ReadWriteOnce"]
+              resources:
+                requests:
+                  storage: 5Gi
+            selector: {}
         thanos:
           objectStorageConfig:
             existingSecret:
