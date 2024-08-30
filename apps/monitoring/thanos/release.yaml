@@ -73,6 +73,9 @@ spec:
         size: 10Gi
     receive:
       enabled: true
+      persistence:
+        storageClass: "longhorn"
+        size: 10Gi
       service:
         additionalHeadless: true
       resources:
