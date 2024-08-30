@@ -92,7 +92,7 @@ spec:
       replicaCount: 1
       config:
         - endpoints:
-          - "kube-thanos-receive.monitoring.svc.talos.home:10901"
+          - "127.0.0.1:10901"
       replicaLabel: prometheus_replica
     receiveDistributor:
       enabled: false
