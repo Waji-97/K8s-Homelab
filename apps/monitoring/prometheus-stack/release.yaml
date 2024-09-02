@@ -54,6 +54,8 @@ spec:
       agentMode: false
       thanosService:
         enabled: true
+      thanosServiceMonitor: 
+        enabled: true
       prometheusSpec:
         # remoteWrite:
         # - url: http://kube-thanos-receive:19291/api/v1/receive
