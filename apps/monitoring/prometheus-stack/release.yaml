@@ -52,15 +52,18 @@ spec:
         - 192.168.219.73 
     prometheus:
       agentMode: false
+      thanosService:
+        enabled: true
       prometheusSpec:
-        remoteWrite:
-        - url: http://kube-thanos-receive:19291/api/v1/receive
-          #enableHTTP2: false
+        # remoteWrite:
+        # - url: http://kube-thanos-receive:19291/api/v1/receive
+        #   #enableHTTP2: false
         disableCompaction: true
         externalLabels:
           cluster: talos.home
         retention: 5d
-        replicas: 2
+        replicas: 1
+        shards: 2
         storageSpec:
           volumeClaimTemplate:
             spec:
