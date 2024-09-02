@@ -18,6 +18,7 @@ spec:
         name: cilium
       interval: 12h
   values:
+    l7Proxy: true
     cni:
       exclusive: false
     k8sServiceHost: localhost
