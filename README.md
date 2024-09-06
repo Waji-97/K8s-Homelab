@@ -55,8 +55,6 @@ The repository is a mono repository for my homelab Kubernetes cluster that imple
 |[<img width="32" src="https://avatars.githubusercontent.com/u/45158470?s=48&v=4">](https://github.com/crossplane/crossplane)| Crossplane | Kubernetes extension for building cloud native control planes |
 |[<img width="32" src="https://avatars.githubusercontent.com/u/4921466?s=48&v=4">](https://github.com/keycloak/keycloak)| Keycloak | Open Source Identity and Access Management |
 |[<img width="32" src="https://avatars.githubusercontent.com/u/62798169?s=48&v=4">](https://github.com/oauth2-proxy/oauth2-proxy)| Oauth2-Proxy | Reverse proxy server that provides authentication using providers |
-|[<img width="32" src="https://raw.githubusercontent.com/swingmx/swingmusic/master/.github/images/logo-fill.light.svg">](https://github.com/swingmx/swingmusic)| Swingmusic | Self-hosted music player |
-|[<img width="32" src="https://raw.githubusercontent.com/MattBlackOnly/TubeTube/main/tubetube/static/tubetube.png">](https://github.com/MattBlackOnly/TubeTube)| TubeTube | A simple YouTube downloader |
 
 
 ---
